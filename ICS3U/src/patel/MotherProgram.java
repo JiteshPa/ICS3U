@@ -12,7 +12,7 @@ public class MotherProgram {
 	 *Main Method
 	 **/
 	public static void main(String[] args) {
-		int x=5%2;
+		
 		Scanner input = new Scanner(System.in);
 		String name; //user's name
 		int userBirth; //user's birth year
