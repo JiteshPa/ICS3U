@@ -12,7 +12,10 @@ public class MotherProgram {
 	 *Main Method
 	 **/
 	public static void main(String[] args) {
+		boolean z=true;
 		
+		while(z==true)
+		{
 		Scanner input = new Scanner(System.in);
 		String name; //user's name
 		int userBirth; //user's birth year
@@ -34,7 +37,15 @@ public class MotherProgram {
 
 		motherAge = userBirth - motherBirth;
 		System.out.println(motherBirth + "? That means she was " + motherAge + " years old when you were born!");
+		System.out.println("Would you like to go again?(Y/N)");
+		String yesNo = input.nextLine();
+		if (yesNo.equals("Y")) {
+			z = true;
+		} else {
+			z = false;
+		}
 
+		}
 	}
 
 }
