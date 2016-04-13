@@ -29,7 +29,7 @@ public class MarkProgram {
 			inputedMarks[i]=input.nextInt();
 		}
 		
-		//outputing grades
+		//outputting grades
 		System.out.println("The letter grades are:");
 		for (int i=0;i<t;i++)
 		{
