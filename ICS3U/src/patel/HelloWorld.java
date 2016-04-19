@@ -5,6 +5,7 @@ package patel;
  * March 2, 2016
  */
 
+
 public class HelloWorld {
 
 	public static void main(String[] args) {
@@ -20,7 +21,6 @@ public class HelloWorld {
 		System.out.println("26"+"18");
 		System.out.println("26"+18);
 		System.out.println(15+"31");
-		
 		
 
 	}

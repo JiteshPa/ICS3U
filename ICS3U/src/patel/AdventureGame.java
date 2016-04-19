@@ -4,11 +4,8 @@ package patel;
  * Nucci and Jitesh
  * April 18th, 2016
  * AdventureGame.Java
- * This is an adventure game mostly made of nested ifs, the objective is no to die
+ * This is an adventure game mostly made of nested ifs, the objective is not to die
  * */
-
-
-
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -56,7 +53,7 @@ public class AdventureGame {
 
 	public static boolean death = false;
 
-	public static void main(String[] args) throws InterruptedException, LineUnavailableException, IOException, UnsupportedAudioFileException {
+	public static void main(String[] args) throws InterruptedException, LineUnavailableException,IOException, UnsupportedAudioFileException {
 
 		// make a console
 		Console log = new Console(40, 150);
@@ -80,9 +77,6 @@ public class AdventureGame {
 			camelPic = ImageIO.read(AdventureGame.class.getResourceAsStream("/camel.jpg"));
 			castlePic = ImageIO.read(AdventureGame.class.getResourceAsStream("/castle.jpg"));
 			desertPic = ImageIO.read(AdventureGame.class.getResourceAsStream("/desert.jpg"));
-
-			// mock up a loading bar at 25%
-			log.drawImage(loadingBar25, 0, 0, 500, 500, null);
 			forestPathPic = ImageIO.read(AdventureGame.class.getResourceAsStream("/Forest Path.jpg"));
 			forestPic = ImageIO.read(AdventureGame.class.getResourceAsStream("/Forest.jpg"));
 			goldPic = ImageIO.read(AdventureGame.class.getResourceAsStream("/gold.jpg"));
@@ -92,8 +86,9 @@ public class AdventureGame {
 			mummyPic = ImageIO.read(AdventureGame.class.getResourceAsStream("/mummy.jpg"));
 			playerPic = ImageIO.read(AdventureGame.class.getResourceAsStream("/player.jpg"));
 
-			// mock up a loading bar at 50%
-			log.drawImage(loadingBar50, 0, 0, 500, 500, null);
+			
+			// mock up a loading bar at 25%
+			log.drawImage(loadingBar25, 0, 0, 500, 500, null);
 			playerDeathPic = ImageIO.read(AdventureGame.class.getResourceAsStream("/playerDead.jpg"));
 			princessPic = ImageIO.read(AdventureGame.class.getResourceAsStream("/princess.jpg"));
 			pyramidHallwayPic = ImageIO.read(AdventureGame.class.getResourceAsStream("/pyramid hallway.jpg"));
@@ -101,53 +96,54 @@ public class AdventureGame {
 			skeletonArmyPic = ImageIO.read(AdventureGame.class.getResourceAsStream("/skeleton army.jpg"));
 			swordPic = ImageIO.read(AdventureGame.class.getResourceAsStream("/sword.jpg"));
 			thronePic = ImageIO.read(AdventureGame.class.getResourceAsStream("/throne.jpg"));
-
-			// mock up a loading bar at 75%
-			log.drawImage(loadingBar75, 0, 0, 500, 500, null);
 			trollPic = ImageIO.read(AdventureGame.class.getResourceAsStream("/troll.jpg"));
 			tunnelPic = ImageIO.read(AdventureGame.class.getResourceAsStream("/tunnel.jpg"));
 			yellowBrickRoadPic = ImageIO.read(AdventureGame.class.getResourceAsStream("/yellow brick road.jpg"));
-			// roadWithFriendsPic =
-			// ImageIO.read(AdventureGame.class.getResourceAsStream("/Yellow_Brick_Road
-			// and friends.jpg"));
+			roadWithFriendsPic = ImageIO.read(AdventureGame.class.getResourceAsStream("/Yellow_Brick_Road and friends.jpg"));
 
-			// finish loading
-			log.drawImage(loadingBar100, 0, 0, 500, 500, null);
+			
 
-			// make sure everyone can see the final loading bar
-			Thread.sleep(500);
+			
 
 			// handle all 'errors'
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		//import all sounds
-			Clip backgroundMusic = AudioSystem.getClip();
-			backgroundMusic.open(AudioSystem.getAudioInputStream(new File("Libraries/Documents/Workspace/backgroundMusic"))); 
-			Clip trollSound = AudioSystem.getClip();
-			trollSound.open(AudioSystem.getAudioInputStream(new File("Libraries/Documents/Workspace/trollSound")));
-			Clip goldSound = AudioSystem.getClip();
-			goldSound.open(AudioSystem.getAudioInputStream(new File("Libraries/Documents/Workspace/goldSound")));
-			Clip mummySound = AudioSystem.getClip();
-			mummySound.open(AudioSystem.getAudioInputStream(new File("Libraries/Documents/Workspace/mummySound")));
-			Clip marchSound = AudioSystem.getClip();
-			marchSound.open(AudioSystem.getAudioInputStream(new File("Libraries/Documents/Workspace/marchSound")));
-			Clip winningSound = AudioSystem.getClip();
-			winningSound.open(AudioSystem.getAudioInputStream(new File("Libraries/Documents/Workspace/winningSound")));
-			Clip deathSound = AudioSystem.getClip();
-			deathSound.open(AudioSystem.getAudioInputStream(new File("Libraries/Documents/Workspace/deathSound")));
-			Clip gameMusic = AudioSystem.getClip();
-			gameMusic.open(AudioSystem.getAudioInputStream(new File("Libraries/Documents/Workspace/gameMusic")));
-			Clip desertSound = AudioSystem.getClip();
-			desertSound.open(AudioSystem.getAudioInputStream(new File("Libraries/Documents/Workspace/desertSound")));
-			Clip forestSound = AudioSystem.getClip();
-			forestSound.open(AudioSystem.getAudioInputStream(new File("Libraries/Documents/Workspace/forestSound")));
-			Clip camelSound = AudioSystem.getClip();
-			camelSound.open(AudioSystem.getAudioInputStream(new File("Libraries/Documents/Workspace/camelSound")));
-			Clip dehydrationDeathSound = AudioSystem.getClip();
-			dehydrationDeathSound.open(AudioSystem.getAudioInputStream(new File("Libraries/Documents/Workspace/dehydrationDeathSound")));
-			Clip swordsClashingSound = AudioSystem.getClip();
-			swordsClashingSound.open(AudioSystem.getAudioInputStream(new File("Libraries/Documents/Workspace/swordsClashingSound")));
+		//Libraries/Documents/Workspace
+		
+		// mock up a loading bar at 50%
+		log.drawImage(loadingBar50, 0, 0, 500, 500, null);
+		//import music
+		Clip backgroundMusic = AudioSystem.getClip();
+		backgroundMusic.open(AudioSystem.getAudioInputStream(new File("backgroundMusic.wav")));
+		// mock up a loading bar at 75%
+		log.drawImage(loadingBar75, 0, 0, 500, 500, null);
+		Clip trollSound = AudioSystem.getClip();
+		trollSound.open(AudioSystem.getAudioInputStream(new File("trollSound.wav")));
+		Clip goldSound = AudioSystem.getClip();
+		goldSound.open(AudioSystem.getAudioInputStream(new File("goldSound.wav")));
+		Clip mummySound = AudioSystem.getClip();
+		mummySound.open(AudioSystem.getAudioInputStream(new File("mummySound.wav")));
+		Clip marchSound = AudioSystem.getClip();
+		marchSound.open(AudioSystem.getAudioInputStream(new File("marchSound.wav")));
+		Clip winningSound = AudioSystem.getClip();
+		winningSound.open(AudioSystem.getAudioInputStream(new File("winningSound.wav")));
+		Clip deathSound = AudioSystem.getClip();
+		deathSound.open(AudioSystem.getAudioInputStream(new File("death.wav")));
+		Clip desertSound = AudioSystem.getClip();
+		desertSound.open(AudioSystem.getAudioInputStream(new File("desertSound.wav")));
+		Clip forestSound = AudioSystem.getClip();
+		forestSound.open(AudioSystem.getAudioInputStream(new File("forestSound.wav")));
+		Clip camelSound = AudioSystem.getClip();
+		camelSound.open(AudioSystem.getAudioInputStream(new File("camelSound.wav")));
+		Clip dehydrationDeathSound = AudioSystem.getClip();
+		dehydrationDeathSound.open(AudioSystem.getAudioInputStream(new File("dehydrationDeathSound.wav")));
+		Clip swordsClashingSound = AudioSystem.getClip();
+		swordsClashingSound.open(AudioSystem.getAudioInputStream(new File("swordsClashingSound.wav")));
+		// finish loading
+		log.drawImage(loadingBar100, 0, 0, 500, 500, null);
+		// make sure everyone can see the final loading bar
+		Thread.sleep(500);
 
 		// make 2d array for the users inputs
 		String[][] userInput = new String[2][10];
@@ -170,6 +166,9 @@ public class AdventureGame {
 		String replay;
 		String userGuess;
 		int triesMummy = 3;
+		
+		//start playing the background music
+		backgroundMusic.start();
 
 		// playback loop
 		while (playAgain == true) {
@@ -187,10 +186,7 @@ public class AdventureGame {
 				}
 				primaryChoice = null;
 				death = false;
-				
-				//Start background music
-				backgroundMusic.start();
-				
+
 				// print user output
 				log.clear();
 				log.drawImage(castlePic, 0, 0, 1920 / 3, 1200 / 3, null);
@@ -200,7 +196,7 @@ public class AdventureGame {
 				primaryChoice = log.readLine();
 				log.clear();
 
-				// first branch
+				// first branch (Jitesh)
 				if (primaryChoice.equalsIgnoreCase("forest")) {
 					noError[0] = true;
 					// second error handling loop
@@ -231,7 +227,7 @@ public class AdventureGame {
 								if (userInput[0][2].equalsIgnoreCase("Yes")) {
 									noError[2] = true;
 
-									//make number for random chance
+									// make number for random chance
 									int chance = (int) (Math.random() * 3);
 									if (chance == 0 || chance == 1) {
 										log.drawImage(playerDeathPic, 0, 100, 1010, 547, null);
@@ -241,34 +237,41 @@ public class AdventureGame {
 									} else {
 										sword = true;
 
-										//tell user info
+										// tell user info
 										while (!noError[3]) {
 											log.drawImage(yellowBrickRoadPic, 0, 0, 600, 315, null);
 											log.println("You hit the guards and kill them. You climb down and steal some of their gold, along with a sword as a weapon!");
+											
+											//play the gold sound
+											goldSound.start();
+											
 											log.println("You come across a cross roads.");
 											log.println("One path leads to a bridge, the other goes to a yellow brick road. Where would you like to go? (bridge/yellow brick road)");
 											userInput[0][3] = log.readLine();
 											log.clear();
 
-											//bridge route
+											// bridge route
 											if (userInput[0][3].equalsIgnoreCase("bridge") && death == false) {
 												noError[3] = true;
 												for (int i = 3; i != 0; i--) {
 													log.clear();
 													log.drawImage(bridgePic, 0, 0, 1680 / 2, 1050 / 2, null);
+													trollSound.start();
 													log.println("As you are beginning to cross, a troll blocks your path!");
 													log.println("You tell the troll that you wish to pass, and he says he'll let you if you can get his riddle right in three guesses.");
 													log.println("The riddle is: What gets wetter as it drys?");
 													riddle = log.readLine();
-													
-													//the correct answer for the troll question on the first try
-													if (riddle.equalsIgnoreCase("a towel") && i == 2) {
+
+													// the correct answer for
+													// the troll question on the
+													// first try
+													if (riddle.equalsIgnoreCase("a towel") && i == 3) {
 														log.clear();
 														log.println("The troll says 'that is correct, you may procced!'");
 														death = false;
 														break;
-														
-														//or he kills you
+
+														// or he kills you
 													} else if (riddle.equalsIgnoreCase("a towel")) {
 														log.drawImage(playerDeathPic, 0, 100, 1010, 547, null);
 														log.println("The troll says 'correct, but you didnt get it on the first try! I know I said I'd give you 3 tries, but i lied.' The troll eats you, you are dead.");
@@ -284,20 +287,23 @@ public class AdventureGame {
 															log.println("The troll lunges himself at the guards, but before you get a chance to run, the troll kills a guard and throws him at you.");
 															log.println("The two other gaurds kill the troll, and start approching you.");
 															log.println("You pull out the sword you found earlier, and charge at the guards.");
+															swordsClashingSound.start();
 															log.println("Using your agility, you manage to kill both of them. You steal their gold and cross the bridge, seeing your house in the distance.");
 															gold += 50;
+															goldSound.start();
 														}
 													}
 													Thread.sleep(750);
 
 												}
 
-												//yellow brick road route
+												// yellow brick road route
 											} else if (userInput[0][3].equalsIgnoreCase("yellow brick road") && death == false) {
 												noError[3] = true;
 												log.drawImage(roadWithFriendsPic, 0, 0, 600 * 2, 407 * 2, null);
 												log.println("You come across a girl, a tin man, a scarecrow and a lion who all look familier. Before you can remmber from where, they all attack you. You are dead.");
 												KillPlayer();
+												deathSound.start();
 											} else {
 												noError[3] = false;
 												log.println("Please enter a valid option.");
@@ -310,6 +316,7 @@ public class AdventureGame {
 									noError[2] = true;
 									log.drawImage(playerDeathPic, 0, 100, 1010, 547, null);
 									log.println("The guards spot you and kill you. You are dead.");
+									deathSound.start();
 									KillPlayer();
 								} else {
 									noError[2] = false;
@@ -322,6 +329,7 @@ public class AdventureGame {
 							log.drawImage(playerDeathPic, 0, 100, 1010, 547, null);
 							noError[1] = true;
 							log.println("The guards catch up to you! They kill you. You are dead.");
+							deathSound.start();
 							KillPlayer();
 						} else {
 							noError[1] = false;
@@ -331,13 +339,13 @@ public class AdventureGame {
 						}
 
 					}
-					
-				
+					// second branch (Nucci)
 				} else if (primaryChoice.equalsIgnoreCase("desert")) {
 					noError[0] = true;
 					while (!noError[4]) {
 						log.drawImage(desertPic, 0, 0, 1920 / 2, 1280 / 2, null);
 						log.println("You come to a camel. Do you want to take it? (yes/no)");
+						camelSound.start();
 						userInput[1][0] = log.readLine();
 						log.clear();
 						if (userInput[1][0].equalsIgnoreCase("Yes")) {
@@ -345,6 +353,7 @@ public class AdventureGame {
 							while (!noError[5]) {
 								log.drawImage(pyramidPic, 0, 0, 450 * 2, 362 * 2, null);
 								log.println("You ride the camel until you approch a pyramid.");
+								desertSound.start();
 								log.println("Do you enter? (yes/no)");
 								userInput[1][1] = log.readLine();
 								log.clear();
@@ -358,7 +367,8 @@ public class AdventureGame {
 										userInput[1][2] = log.readLine();
 										log.clear();
 
-										//if the choice isn't yes or no, loop back
+										// if the choice isn't yes or no, loop
+										// back
 										if (!userInput[1][2].equalsIgnoreCase("yes") && !userInput[1][2].equalsIgnoreCase("no")) {
 											noError[7] = false;
 											log.println("Please enter a valid option.");
@@ -371,24 +381,26 @@ public class AdventureGame {
 											log.drawImage(goldPic, 0, 0, 1680 / 2, 944 / 2, null);
 											log.println("You see gold statue");
 											log.println("You take it and move on. (Type anything to continue)");
+											goldSound.start();
 											gold += 10;
 											log.readLine();
 											log.clear();
 										}
 										if (userInput[1][2].equalsIgnoreCase("no")) {
 											noError[7] = true;
-											// ^ don't loop back 
+											// ^ don't loop back
 										}
 
 									}
 									log.drawImage(mummyPic, 0, 0, 600, 780, null);
 									log.println("You keep walking until you come across a mummy.");
+									mummySound.start();
 									log.println("The mummy says:");
 									log.println("'All who enter here DIE!... Unless you can guess my number thats between 1 and 5'");
 									log.println("You have three guesses. (1, 2, 3, 4, 5)");
 
 									int mummyNumber = (int) ((Math.random() * 5) + 1);
-									
+
 									for (int i = 1; i <= triesMummy && i > 0; i++) {
 										userGuess = log.readLine();
 										log.clear();
@@ -400,6 +412,7 @@ public class AdventureGame {
 												log.println("I need a genius like you, to lead my army of skeletons!");
 												log.println("Go, lead my army and attack that wretched kingdom!");
 												log.println("Power hungry, you lead the army to the kingdom.");
+												marchSound.start();
 												log.println("You need a battle plan!");
 												log.println("Will you lay seige to the castle, or assault it head on? (seige/assault)");
 												userInput[1][3] = log.readLine();
@@ -444,11 +457,13 @@ public class AdventureGame {
 												if (userInput[1][4].equalsIgnoreCase("yes")) {
 													noError[8] = true;
 													log.println("You use the portal and it drops you off at home.");
-													//dont kill the player this time
+													// dont kill the player this
+													// time
 													break;
 												} else if (userInput[1][4].equalsIgnoreCase("no")) {
 													log.drawImage(playerDeathPic, 0, 100, 1010, 547, null);
 													log.println("You keep walking for a while until you begen to feel thirsty.");
+													dehydrationDeathSound.start();
 													log.println("You died of dehydration.");
 													KillPlayer();
 												} else {
@@ -463,12 +478,14 @@ public class AdventureGame {
 											log.drawImage(playerDeathPic, 0, 100, 1010, 547, null);
 											log.println("That is correct... however... I think I'm going to kill you anyways.");
 											log.println("You are dead.");
+											deathSound.start();
 											KillPlayer();
 										} else if (i == 3) {
 											i = -1;
 											log.drawImage(playerDeathPic, 0, 100, 1010, 547, null);
 											log.println("The mummy kills you.");
 											log.println("You are dead.");
+											deathSound.start();
 											KillPlayer();
 										} else {
 											log.println("That is wrong.");
@@ -482,6 +499,7 @@ public class AdventureGame {
 									noError[5] = true;
 									log.drawImage(playerDeathPic, 0, 100, 1010, 547, null);
 									log.println("You drown in the quicksand you are standing in. You are dead.");
+									deathSound.start();
 									KillPlayer();
 								} else {
 									noError[5] = false;
@@ -494,6 +512,7 @@ public class AdventureGame {
 							noError[4] = true;
 							log.drawImage(playerDeathPic, 0, 100, 1010, 547, null);
 							log.println("You keep walking, and begin to feel tired. You start to feel thirsty. You die of dehydration.");
+							dehydrationDeathSound.start();
 							KillPlayer();
 						} else {
 							noError[4] = false;
@@ -511,13 +530,14 @@ public class AdventureGame {
 			}
 			noError[19] = false;
 			while (!noError[19]) {
-				
-				//if you didn't die, you win
+
+				// if you didn't die, you win
 				if (!death) {
 					log.println("Congradulations! You win!");
+					winningSound.start();
 				}
-				
-				//show choices
+
+				// show choices
 				log.println("Here were your choices:");
 				if (primaryChoice.equalsIgnoreCase("Forest")) {
 					log.println(primaryChoice);
@@ -537,20 +557,21 @@ public class AdventureGame {
 					log.println(primaryChoice);
 				}
 
-				//print gold
+				// print gold
 				log.println("You accumulated " + gold + " gold on your journey.");
 				log.println("Would you like to play again?");
 				replay = log.readLine();
 
-				//dont loop back if they don't want to...
+				// dont loop back if they don't want to...
 				if (replay.equalsIgnoreCase("No")) {
 					noError[19] = true;
 					playAgain = false;
+					backgroundMusic.stop();
 					log.println("Well thats rude. :(");
 					Thread.sleep(1000);
 					log.close();
-					
-					//and do if they do want to
+
+					// and do if they do want to
 				} else if (replay.equalsIgnoreCase("Yes")) {
 					playAgain = true;
 					for (int i = 0; i < 20; i++) {
@@ -573,5 +594,4 @@ public class AdventureGame {
 	}
 
 }
-
 
