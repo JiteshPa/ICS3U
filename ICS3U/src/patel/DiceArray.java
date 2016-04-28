@@ -22,34 +22,34 @@ public class DiceArray {
 			if (x == 2) {
 				total[0]++;
 			}
-			if (x == 3) {
+			else if (x == 3) {
 				total[1]++;
 			}
-			if (x == 4) {
+			else if (x == 4) {
 				total[2]++;
 			}
-			if (x == 5) {
+			else if (x == 5) {
 				total[3]++;
 			}
-			if (x == 6) {
+			else if (x == 6) {
 				total[4]++;
 			}
-			if (x == 7) {
+			else if (x == 7) {
 				total[5]++;
 			}
-			if (x == 8) {
+			else if (x == 8) {
 				total[6]++;
 			}
-			if (x == 9) {
+			else if (x == 9) {
 				total[7]++;
 			}
-			if (x == 10) {
+			else if (x == 10) {
 				total[8]++;
 			}
-			if (x == 11) {
+			else if (x == 11) {
 				total[9]++;
 			}
-			if (x == 12) {
+			else if (x == 12) {
 				total[10]++;
 			}
 		}
