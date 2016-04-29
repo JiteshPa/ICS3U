@@ -6,10 +6,11 @@ public class GuessingGame {
 
 	public static void main(String[] args) {
 		
-		String [] guess=new String []{"lion","tiger","poodle","ostrich","poodle", "elephant", "snake", "lizard", "ant","spider","dog","cat","hampster","bird","fish","horse","goat","turtle","unicorn","dragon"};
+		String [] guess=new String []{"lion","tiger","poodle","ostrich","mouse", "elephant", "snake", "lizard", "ant","spider","dog","cat","hampster","bird","fish","horse","goat","turtle","unicorn","dragon"};
 		boolean [] guessed =new boolean [20];
 		Scanner scn=new Scanner (System.in);
 		String yesNo;
+		int i=0;
 		
 
 		
@@ -23,25 +24,37 @@ public class GuessingGame {
 		
 	
 		
-		if (yesNo.equals("Y"))
+		if (yesNo.equalsIgnoreCase("Y"))
 		{
 			
 			do
 			{	
-				//loop
-				int x=(int)(Math.random()*20);
+				
+				int x=(int)(Math.random()*guess.length);
+				
 				if (!guessed[x]){
-					
 					guessed[x]=true;
 					System.out.println("Is it a "+guess[x]+"? (Y/N)");
 					yesNo=scn.nextLine();
+					i++;
+					if (yesNo.equals("Y"))
+						System.out.println("I Win!!!!");
 				}
 				
+				if (i==guess.length)
+				{
+					System.out.println("I dont have any other guesses... you win :(");
+					yesNo="Y";
+				}
+								
 				
-				
-			}while (yesNo.equals("N"));
+			}while (yesNo.equalsIgnoreCase("N"));
 			
-				System.out.println("I Win!!!!");
+			
+		}
+		else
+		{
+			System.out.println(":(");
 		}
 	
 		
