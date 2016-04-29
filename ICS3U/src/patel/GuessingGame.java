@@ -37,7 +37,7 @@ public class GuessingGame {
 					System.out.println("Is it a "+guess[x]+"? (Y/N)");
 					yesNo=scn.nextLine();
 					i++;
-					if (yesNo.equals("Y"))
+					if (yesNo.equalsIgnoreCase("Y"))
 						System.out.println("I Win!!!!");
 				}
 				
