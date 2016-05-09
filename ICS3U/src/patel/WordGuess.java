@@ -30,7 +30,7 @@ public class WordGuess {
 	    	}
 	    	else
 	    	{
-	    		num=secretWordList[x].indexof
+	    		int num=secretWordList[x].indexOf(guessWord);
 	    	}
 	    	
 	    	
