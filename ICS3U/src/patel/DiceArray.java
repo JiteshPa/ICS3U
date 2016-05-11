@@ -7,13 +7,14 @@ package patel;
 public class DiceArray {
 
 	public static void main(String[] args) {
+		//declaring variables 
 		int dieOne;
 		int dieTwo;
 		int x;
-
 		String[] roll = new String[] { "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
 		int[] total = new int[11];
-
+		
+		//rolling the die 10000 times
 		for (int i = 0; i != 10000; i++) {
 			dieOne = (int) (Math.random() * 6) + 1;
 			dieTwo = (int) (Math.random() * 6) + 1;
@@ -53,6 +54,7 @@ public class DiceArray {
 				total[10]++;
 			}
 		}
+		//Outputting results
 		System.out.println("Total      Number of Rolls");
 		for (int i = 0; i != 11; i++) {
 			System.out.println(roll[i] + "          " + total[i]);
