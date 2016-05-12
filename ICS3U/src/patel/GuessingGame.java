@@ -46,7 +46,7 @@ public class GuessingGame {
 						System.out.println("I Win!!!!");
 				}
 				
-				//if everything is alredy guessed
+				//if everything is already guessed
 				if (i==guess.length)
 				{
 					System.out.println("I dont have any other guesses... you win :(");
