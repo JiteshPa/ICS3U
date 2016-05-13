@@ -91,7 +91,7 @@ public class TicTacToe {
 						if (!tttBoard[0][0].equals("") && !tttBoard[0][1].equals("") && !tttBoard[0][2].equals("")
 								&& !tttBoard[1][0].equals("") && !tttBoard[1][1].equals("")
 								&& !tttBoard[1][2].equals("") && !tttBoard[2][0].equals("")
-								&& !tttBoard[2][1].equals("") && !tttBoard[2][2].equals("")) {
+								&& !tttBoard[2][1].equals("") && !tttBoard[2][2].equals("") && !win) {
 							win = true;
 							System.out.println("Cat's game!");
 						}
@@ -171,17 +171,16 @@ public class TicTacToe {
 					}
 				}
 			}
+			// play again?
 			System.out.println("Would you like to play again?(Y/N)");
 			scn.nextLine();
-			yesNo=scn.nextLine();
-			if (yesNo.equalsIgnoreCase("N"))
-			{
+			yesNo = scn.nextLine();
+			if (yesNo.equalsIgnoreCase("N")) {
 				System.out.println(":(");
-				playAgain=false;
-			}
-			else
-			{
-				playAgain=true;
+				playAgain = false;
+			} else {
+				// reset everything
+				playAgain = true;
 				tttBoard[0][0] = "";
 				tttBoard[0][1] = "";
 				tttBoard[0][2] = "";
@@ -191,7 +190,7 @@ public class TicTacToe {
 				tttBoard[2][0] = "";
 				tttBoard[2][1] = "";
 				tttBoard[2][2] = "";
-				
+
 				checker[0][0] = false;
 				checker[0][1] = false;
 				checker[0][2] = false;
@@ -201,13 +200,11 @@ public class TicTacToe {
 				checker[2][0] = false;
 				checker[2][1] = false;
 				checker[2][2] = false;
-				
-				win=false;
-				playAgain=true;
-				magicX=false;
-				magicO=false;
+
+				win = false;
+				magicX = false;
+				magicO = false;
 			}
-			
 
 		}
 	}
