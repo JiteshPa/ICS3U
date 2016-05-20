@@ -5,7 +5,7 @@ package patel;
 //This program prints out the word "MISSISSIPPI" vertically in big capital letters that are made of capital letters
 public class MississippiProgram {
 
-	//prints out letters
+	//This is the header for the main method, which prints out the letters
 	public static void main(String[] args) {
 		drawM();
 		drawI();
@@ -19,7 +19,7 @@ public class MississippiProgram {
 		drawP();
 		drawI();
 	}
-	//makes an "M" out of "M"s
+	//This is the method header for a method that makes an "M" out of "M"s
 	public static void drawM()
 	{
 		System.out.println("M     M");
@@ -29,7 +29,7 @@ public class MississippiProgram {
 		System.out.println("M     M");
 		System.out.println("");
 	}
-	//makes an "I" out of "I"s
+	//This is the method header for a method that makes an "I" out of "I"s
 	public static void drawI()
 	{
 		System.out.println("IIIIIII");
@@ -39,7 +39,7 @@ public class MississippiProgram {
 		System.out.println("IIIIIII");
 		System.out.println("");
 	}
-	//makes an "S" out of "S"s
+	//This is the method header for a method that makes an "S" out of "S"s
 	public static void drawS()
 	{
 		System.out.println("SSSSSSS");
@@ -49,7 +49,7 @@ public class MississippiProgram {
 		System.out.println("SSSSSSS");
 		System.out.println("");
 	}
-	//makes an "P" out of "P"s
+	//This is the method header for a method that makes an "P" out of "P"s
 	public static void drawP()
 	{
 		System.out.println("PPPPPPP");
