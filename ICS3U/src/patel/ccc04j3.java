@@ -9,6 +9,7 @@ public class ccc04j3 {
 		
 		int m=scn.nextInt();
 		int n=scn.nextInt();
+		scn.nextLine();
 		String[] adj=new String [m];
 		String [] noun=new String[n];
 		for (int i=0;i<m;i++)
