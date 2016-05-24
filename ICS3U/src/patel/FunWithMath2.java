@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * This program takes in two numbers and does the 4 basic operations with them
  * @author Jitesh Patel
- *@version 20/05/2016
+ *@version 24/05/2016
  */
 
 public class FunWithMath2 {
