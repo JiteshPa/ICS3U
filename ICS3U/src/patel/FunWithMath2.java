@@ -15,14 +15,10 @@ public static DecimalFormat df=new DecimalFormat("0.0");
 			System.out.println("Please enter two numbers.(a and b)");
 			double num1=scn.nextInt();
 			double num2=scn.nextInt();
-
-			
 			System.out.println("a*b="+(df.format(multiply(num1,num2))));
 			System.out.println("a/b="+(df.format(divide(num1,num2))));
 			System.out.println("a-b="+(df.format(subtract(num1,num2))));
 			System.out.println("a+b="+(df.format(add(num1,num2))));
-
-		
 	}
 	/**
 	 * This method multiplies the first number by the second number
