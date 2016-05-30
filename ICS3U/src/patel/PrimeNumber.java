@@ -3,33 +3,52 @@ package patel;
 import java.util.Scanner;
 
 public class PrimeNumber {
+	//global variable
 	public static int x;
 
 	public static void main(String[] args) {
+		//scanner
 		Scanner scn = new Scanner(System.in);
 
+		//input prompts
 		System.out.println("Please enter a number.");
 		x = scn.nextInt();
-		if (x == 1) {
-			System.out.println("The number is not prime");
-		} else {
-			System.out.println(isDivisable(x));
-		}
+			
+			if (isPrime(x))
+			{
+				System.out.println(x+" is prime.");
+			}
+			else
+			{
+				System.out.println(x+" is not prime.");
+			}
 
 	}
 
-	public static String isDivisable(int x) {
-		boolean checker = false;
-		for (int i = 2; i != x; i++) {
-			if (x % i == 0) {
-				checker = true;
+	public static boolean isDivisible(int x, int i) {
+		
+		if(x%i!=0)
+		{
+			return (false);
+		}
+	
+		return(true);
+	
+	}
+	public static boolean isPrime(int x){
+		if(x==0||x==1)
+		{
+			return(false);
+		}
+		
+		for(int i=2;i<x;i++)
+		{
+			if(isDivisible(x, i)==true)
+			{
+				return (false);
 			}
 		}
-		if (checker) {
-			return "The number is not prime";
-		} else {
-			return "The number is prime";
-		}
+		return(true);
 	}
 
 }
