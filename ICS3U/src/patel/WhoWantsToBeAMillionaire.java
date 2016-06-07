@@ -16,10 +16,23 @@ public class WhoWantsToBeAMillionaire {
 
 	public static BufferedImage titleScreen=null;
 	public static BufferedImage questionScreen=null;
-	
+	public static int rnd;
 	
 	public static int x = 0, y = 0;
 	static Console menu = new Console(40, 150);
+	
+	
+	/*menu.setCursor(121,599);
+ 	menu.println(incorrect1[i]);
+ 
+ 	menu.setCursor(431,599);
+ 	menu.println(incorrect2[i]);
+ 
+ 	menu.setCursor(121,788);
+ 	menu.println(incorrect3[i]);
+ 
+ 	menu.setCursor(431,788);
+ 	menu.println(correct[i]);*/
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
@@ -72,9 +85,8 @@ public class WhoWantsToBeAMillionaire {
          
          
          menu.clear();
-         menu.setTextBackgroundColor(Color.BLACK);
-         menu.setTextColor(Color.WHITE);
-         //menu.getHeight()
+         menu.setTextBackgroundColor(Color.BLUE);
+         menu.setTextColor(Color.YELLOW);
          menu.drawImage(titleScreen, 0, 0,  menu.getWidth() , menu.getHeight() , null);
          
         
@@ -85,85 +97,84 @@ public class WhoWantsToBeAMillionaire {
         	 Thread.sleep(10);
         	 if ((419<=x&&x<=647)&&(360<=y&&y<=469))
         	 {
-        		 menu.clear();
         		 break;
         	 }
          }
-         menu.drawImage(questionScreen, 0, 0,  menu.getWidth() , menu.getHeight() , null);
-         
+        
          
          for (int i=0;i<questions.length;i++)
          {
-        	 menu.setCursor(161,245);
-        	 menu.println(questions[i]);
+    		 menu.clear();
+        	 menu.drawImage(questionScreen, 0, 0,  menu.getWidth() , menu.getHeight() , null);
+        	 menu.setCursor(9,15);
+        	 menu.print(questions[i]);
         	 Thread.sleep(5000);
-
-        	 int rnd=(int) (Math.random() * 4) ;
         	 
+        	 rnd=(int) (Math.random() * 3);
         	 
         	 if (rnd==0)
         	 {
-        		menu.setCursor(121,599);
-        	 	menu.println(incorrect1[i]);
+        		menu.setCursor(27,15);
+        	 	menu.print(incorrect1[i]);
         	 
-        	 	menu.setCursor(431,599);
-        	 	menu.println(incorrect2[i]);
+        	 	menu.setCursor(27,54);
+        	 	menu.print(incorrect2[i]);
         	 
-        	 	menu.setCursor(121,788);
-        	 	menu.println(incorrect3[i]);
+        	 	menu.setCursor(36,15);
+        	 	menu.print(incorrect3[i]);
         	 
-        	 	menu.setCursor(431,788);
-        	 	menu.println(correct[i]);
+        	 	menu.setCursor(36,54);
+        	 	menu.print(correct[i]);
         	 }
         	 if (rnd==1)
         	 {
-        		menu.setCursor(121,599);
-        	 	menu.println(incorrect2[i]);
+        		menu.setCursor(27,15);
+        	 	menu.print(incorrect2[i]);
         	 
-        	 	menu.setCursor(431,599);
-        	 	menu.println(correct[i]);
+        	 	menu.setCursor(27,54);
+        	 	menu.print(correct[i]);
         	 
-        	 	menu.setCursor(121,788);
-        	 	menu.println(incorrect3[i]);
+        	 	menu.setCursor(36,15);
+        	 	menu.print(incorrect3[i]);
         	 
-        	 	menu.setCursor(431,788);
-        	 	menu.println(incorrect1[i]);
+        	 	menu.setCursor(36,54);
+        	 	menu.print(incorrect1[i]);
         	 }
-        	 if (rnd==2)
+        	 else if (rnd==2)
         	 {
-        		menu.setCursor(121,599);
-        	 	menu.println(correct[i]);
+        		menu.setCursor(27,15);
+        	 	menu.print(correct[i]);
         	 
-        	 	menu.setCursor(431,599);
-        	 	menu.println(incorrect1[i]);
+        	 	menu.setCursor(27,54);
+        	 	menu.print(incorrect1[i]);
         	 
-        	 	menu.setCursor(121,788);
-        	 	menu.println(incorrect2[i]);
+        	 	menu.setCursor(36,15);
+        	 	menu.print(incorrect2[i]);
         	 
-        	 	menu.setCursor(431,788);
-        	 	menu.println(incorrect3[i]);
+        	 	menu.setCursor(36,54);
+        	 	menu.print(incorrect3[i]);
         	 }
-        	 if (rnd==3)
+        	 else 
         	 {
-        		menu.setCursor(121,599);
-        	 	menu.println(incorrect3[i]);
+        		menu.setCursor(27,15);
+        	 	menu.print(incorrect3[i]);
         	 
-        	 	menu.setCursor(431,599);
-        	 	menu.println(incorrect2[i]);
+        	 	menu.setCursor(27,54);
+        	 	menu.print(incorrect2[i]);
         	 
-        	 	menu.setCursor(121,788);
-        	 	menu.println(correct[i]);
+        	 	menu.setCursor(36,15);
+        	 	menu.print(correct[i]);
         	 
-        	 	menu.setCursor(431,788);
-        	 	menu.println(incorrect1[i]);
+        	 	menu.setCursor(36,54);
+        	 	menu.print(incorrect1[i]);
         	 }
+        	 Thread.sleep(5000);
         	 while (true)
              {
             	 mouseClick();
             	 Thread.sleep(10);
-            	 if ((419<=x&&x<=647)&&(360<=y&&y<=469))
+            	 if ((0<=x&&x<=100000)&&(0<=y&&y<=100000))
             	 {
-            		 menu.clear();
             		 break;
             	 }
              }
@@ -200,12 +211,47 @@ public class WhoWantsToBeAMillionaire {
 	}
 	
 	public static void fiftyFifty (){
-		
+
+		 if (rnd==0)
+		 {
+			 
+		 }
+		 else if (rnd==1)
+		 {
+			 
+		 }
+		 else if (rnd==2)
+		 {
+			 
+		 }
+		 else
+		 {
+			 
+		 }
 	}
 	public static void phoneAFriend (){
+		Console callScreen=new Console (40,150);
 		
 	}
 	public static void audiencePoll (){
+		Console audiencePoll=new Console(40,150);
+		if (rnd==0)
+		{
+		 audiencePoll.println("_________________________");
+		 audiencePoll.println("|     |     |     |     |");
+		}
+		else if (rnd==1)
+		{
+			 
+		}
+		else if (rnd==2)
+		{
+			 
+		}
+		else
+		{
+			 
+		}
 	
 	}
 	public static void mouseClick (){
@@ -217,6 +263,28 @@ public class WhoWantsToBeAMillionaire {
  			} 
  		});
 		
+	}
+	public static boolean checkAnswer(){
+		 if (rnd==0)
+		 {
+			 return true;
+		 }
+		 else if (rnd==1)
+		 {
+			 return true;
+		 }
+		 else if (rnd==2)
+		 {
+			 return true;
+		 }
+		 else if (rnd==3)
+		 {
+			 return true;
+		 }
+		 else
+		 {
+			 return false;
+		 }
 	}
 
 }
