@@ -16,7 +16,16 @@ public class WhoWantsToBeAMillionaire {
 
 	public static BufferedImage titleScreen=null;
 	public static BufferedImage questionScreen=null;
+	public static BufferedImage rnd0=null;
+	public static BufferedImage rnd1=null;
+	public static BufferedImage rnd2=null;
+	public static BufferedImage rnd3=null;
 	public static int rnd;
+	public static boolean AP;
+	public static boolean PF;
+	public static boolean FF;
+	public static float[] hsbColours = new float[3];
+	
 	
 	public static int x = 0, y = 0;
 	static Console menu = new Console(40, 150);
@@ -36,7 +45,8 @@ public class WhoWantsToBeAMillionaire {
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
-	
+		
+		Color.RGBtoHSB(63, 71, 204, hsbColours);
 		
 		
 		String []questions=new String [15];
@@ -46,8 +56,10 @@ public class WhoWantsToBeAMillionaire {
 		String []correct=new String [15];
 		
 		boolean checker=false;
-		
-		//public static BufferedImage bridgePic = null;
+		rnd0 = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/rnd0.jpg"));
+		rnd1 = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/rnd1.jpg"));
+		rnd2 = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/rnd2.jpg"));
+		rnd3 = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/rnd3.jpg"));
 		titleScreen = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/titleScreen.jpg"));
 		questionScreen = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/questionScreenFinal.jpg"));
 		//log.drawImage(castlePic, 0, 0, 1920 / 3, 1200 / 3, null);
@@ -85,7 +97,7 @@ public class WhoWantsToBeAMillionaire {
          
          
          menu.clear();
-         menu.setTextBackgroundColor(Color.BLUE);
+         menu.setTextBackgroundColor(Color.getHSBColor(hsbColours[0], hsbColours[1], hsbColours[2]));
          menu.setTextColor(Color.YELLOW);
          menu.drawImage(titleScreen, 0, 0,  menu.getWidth() , menu.getHeight() , null);
          
@@ -97,6 +109,8 @@ public class WhoWantsToBeAMillionaire {
         	 Thread.sleep(10);
         	 if ((419<=x&&x<=647)&&(360<=y&&y<=469))
         	 {
+        		 x=0;
+        		 y=0;
         		 break;
         	 }
          }
@@ -108,7 +122,7 @@ public class WhoWantsToBeAMillionaire {
         	 menu.drawImage(questionScreen, 0, 0,  menu.getWidth() , menu.getHeight() , null);
         	 menu.setCursor(9,15);
         	 menu.print(questions[i]);
-        	 Thread.sleep(5000);
+        	 Thread.sleep(1000);
         	 
         	 rnd=(int) (Math.random() * 3);
         	 
@@ -168,11 +182,11 @@ public class WhoWantsToBeAMillionaire {
         	 	menu.setCursor(36,54);
         	 	menu.print(incorrect1[i]);
         	 }
-        	 Thread.sleep(5000);
+        	 
         	 while (true)
              {
             	 mouseClick();
-            	 Thread.sleep(10);
+            	 
             	 if ((0<=x&&x<=100000)&&(0<=y&&y<=100000))
             	 {
             		 break;
@@ -186,17 +200,17 @@ public class WhoWantsToBeAMillionaire {
          
          
  		//50:50
- 		 if ((123<=x&&x<=284)&&(352<=y&&y<=451)) 
+ 		 if ((123<=x&&x<=284)&&(352<=y&&y<=451)&&!FF) 
  		 {
  			 fiftyFifty();
  		 }
  		 //PAF
- 		 if ((324<=x&&x<=284)&&(352<=y&&y<=451))  
+ 		 if ((324<=x&&x<=284)&&(352<=y&&y<=451)&&!PF)  
  		 {
  			 phoneAFriend();
  		 }
  		 //AP
- 		 if ((546<=x&&x<=720)&&(352<=y&&y<=451)) 
+ 		 if ((546<=x&&x<=720)&&(352<=y&&y<=451)&&!AP) 
  		 {
  			 audiencePoll();
  		 }
@@ -212,6 +226,7 @@ public class WhoWantsToBeAMillionaire {
 	
 	public static void fiftyFifty (){
 
+		 FF=true;
 		 if (rnd==0)
 		 {
 			 
@@ -231,27 +246,48 @@ public class WhoWantsToBeAMillionaire {
 	}
 	public static void phoneAFriend (){
 		Console callScreen=new Console (40,150);
+		PF=true;
 		
 	}
 	public static void audiencePoll (){
-		Console audiencePoll=new Console(40,150);
+		Console audiencePoll=new Console(5,25);
+		audiencePoll.setTextBackgroundColor(Color.getHSBColor(hsbColours[0], hsbColours[1], hsbColours[2]));
+		AP=true;
 		if (rnd==0)
 		{
-		 audiencePoll.println("_________________________");
-		 audiencePoll.println("|     |     |     |     |");
+			audiencePoll.println("-------------------------");
+			audiencePoll.println("|  A  |  B  |  C  |  D  |");
+			audiencePoll.println("-------------------------");
+			audiencePoll.println("|  "+20+" |  "+15+" |  "+10+" |  "+55+" |");
+			audiencePoll.println("-------------------------");
+		
 		}
 		else if (rnd==1)
 		{
-			 
+			audiencePoll.println("-------------------------");
+			audiencePoll.println("|  A  |  B  |  C  |  D  |");
+			audiencePoll.println("-------------------------");
+			audiencePoll.println("|  "+20+" |  "+15+" |  "+10+" |  "+55+" |");
+			audiencePoll.println("-------------------------");
 		}
 		else if (rnd==2)
 		{
-			 
+			audiencePoll.println("-------------------------");
+			audiencePoll.println("|  A  |  B  |  C  |  D  |");
+			audiencePoll.println("-------------------------");
+			audiencePoll.println("|  "+20+" |  "+15+" |  "+10+" |  "+55+" |");
+			audiencePoll.println("-------------------------");
 		}
 		else
 		{
-			 
+			audiencePoll.println("-------------------------");
+			audiencePoll.println("|  A  |  B  |  C  |  D  |");
+			audiencePoll.println("-------------------------");
+			audiencePoll.println("|  "+20+" |  "+15+" |  "+10+" |  "+55+" |");
+			audiencePoll.println("-------------------------");
 		}
+		
+		
 	
 	}
 	public static void mouseClick (){
