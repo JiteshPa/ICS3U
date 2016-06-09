@@ -25,22 +25,17 @@ public class testing {
 	public static void main(String[] args) throws IOException {
 		questionScreen = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/questionScreenFinal.jpg"));
 		c.drawImage(questionScreen, 0, 0,  c.getWidth() , c.getHeight() , null);
-		c.setTextBackgroundColor(Color.BLUE);
-		c.setTextColor(Color.YELLOW);
-		c.setCursor(9,15);
-	 	c.print("hi");
-	 
-	 	c.setCursor(27,54);
-	 	c.print("hello");
-	 
-	 	c.setCursor(36,15);
-	 	c.print("ga");
-	 
-	 	c.setCursor(36,54);
-	 	c.print("ha");
+		
+		
+		
+		c.addMouseListener(new MouseAdapter() { 
+			public void mousePressed(MouseEvent me) {
+				x = me.getX();
+				y = me.getY();
+				c.println(x + ", " + y);
+			} 
+		});
 	 	
-	 	c.print("blah");
-
 	}
 
 }

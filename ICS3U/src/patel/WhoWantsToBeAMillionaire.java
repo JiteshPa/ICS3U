@@ -16,6 +16,7 @@ public class WhoWantsToBeAMillionaire {
 
 	public static BufferedImage titleScreen=null;
 	public static BufferedImage questionScreen=null;
+	public static BufferedImage blackScreen=null;
 	public static BufferedImage rnd0=null;
 	public static BufferedImage rnd1=null;
 	public static BufferedImage rnd2=null;
@@ -29,6 +30,8 @@ public class WhoWantsToBeAMillionaire {
 	
 	public static int x = 0, y = 0;
 	static Console menu = new Console(40, 150);
+	
+	
 	
 	
 	/*menu.setCursor(121,599);
@@ -61,6 +64,7 @@ public class WhoWantsToBeAMillionaire {
 		rnd2 = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/rnd2.jpg"));
 		rnd3 = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/rnd3.jpg"));
 		titleScreen = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/titleScreen.jpg"));
+		blackScreen = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/blackScreen.jpg"));
 		questionScreen = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/questionScreenFinal.jpg"));
 		//log.drawImage(castlePic, 0, 0, 1920 / 3, 1200 / 3, null);
 		
@@ -187,20 +191,30 @@ public class WhoWantsToBeAMillionaire {
              {
             	 mouseClick();
             	 
-            	 if ((0<=x&&x<=100000)&&(0<=y&&y<=100000))
+            	 if (((x>413&&x<703)&&(y>748&&y<838))||((324<=x&&x<=284)&&(352<=y&&y<=451))||((546<=x&&x<=720)&&(352<=y&&y<=451))||((x>413&&x<703)&&(y>748&&y<838))||((x>406&&x<695)&&(y>558&&y<646))||((x>90&&x<381)&&(y>557&&y<647))||((x>90&&x<381)&&(y>748&&y<838)))
             	 {
             		 break;
             	 }
              }
         	 
-         
-         
-         
-         
-         
+        	 
+         if(((x>413&&x<703)&&(y>748&&y<838))||((x>406&&x<695)&&(y>558&&y<646))||((x>90&&x<381)&&(y>557&&y<647))||((x>90&&x<381)&&(y>748&&y<838)))
+         {
+        	 if (checkAnswer())
+        	 {
+        		 menu.setCursor(9,15);
+        	 	 menu.println("That is correct!");
+        	 }
+        	 else
+        	 {
+        		 menu.println("Sorry, that's incorrect");
+        		 
+        	 }
+        	 
+         }
          
  		//50:50
- 		 if ((123<=x&&x<=284)&&(352<=y&&y<=451)&&!FF) 
+ 		 if ((x>413&&x<703)&&(y>748&&y<838)&&!FF) 
  		 {
  			 fiftyFifty();
  		 }
@@ -252,6 +266,7 @@ public class WhoWantsToBeAMillionaire {
 	public static void audiencePoll (){
 		Console audiencePoll=new Console(5,25);
 		audiencePoll.setTextBackgroundColor(Color.getHSBColor(hsbColours[0], hsbColours[1], hsbColours[2]));
+		audiencePoll.setTextColor(Color.YELLOW);
 		AP=true;
 		if (rnd==0)
 		{
@@ -301,19 +316,19 @@ public class WhoWantsToBeAMillionaire {
 		
 	}
 	public static boolean checkAnswer(){
-		 if (rnd==0)
+		 if (rnd==0&&(x>413&&x<703)&&(y>748&&y<838))
 		 {
 			 return true;
 		 }
-		 else if (rnd==1)
+		 else if (rnd==1&&(x>406&&x<695)&&(y>558&&y<646))
 		 {
 			 return true;
 		 }
-		 else if (rnd==2)
+		 else if (rnd==2&&(x>90&&x<381)&&(y>557&&y<647))
 		 {
 			 return true;
 		 }
-		 else if (rnd==3)
+		 else if (rnd==3&&(x>90&&x<381)&&(y>748&&y<838))
 		 {
 			 return true;
 		 }
@@ -321,6 +336,12 @@ public class WhoWantsToBeAMillionaire {
 		 {
 			 return false;
 		 }
+	}
+	public static void endGame(){
+		menu.drawImage(blackScreen, 0, 0,  menu.getWidth() , menu.getHeight() , null);
+		menu.setTextBackgroundColor(Color.BLACK);
+		menu.setTextColor(Color.WHITE);
+		menu.println("Game over!");
 	}
 
 }
