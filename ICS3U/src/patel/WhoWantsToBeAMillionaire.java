@@ -126,7 +126,7 @@ public class WhoWantsToBeAMillionaire {
         	 menu.drawImage(questionScreen, 0, 0,  menu.getWidth() , menu.getHeight() , null);
         	 menu.setCursor(9,15);
         	 menu.print(questions[i]);
-        	 Thread.sleep(1000);
+        	 
         	 
         	 rnd=(int) (Math.random() * 3);
         	 
@@ -186,16 +186,18 @@ public class WhoWantsToBeAMillionaire {
         	 	menu.setCursor(36,54);
         	 	menu.print(incorrect1[i]);
         	 }
-        	 
-        	 while (true)
-             {
-            	 mouseClick();
-            	 
-            	 if (((x>413&&x<703)&&(y>748&&y<838))||((324<=x&&x<=284)&&(352<=y&&y<=451))||((546<=x&&x<=720)&&(352<=y&&y<=451))||((x>413&&x<703)&&(y>748&&y<838))||((x>406&&x<695)&&(y>558&&y<646))||((x>90&&x<381)&&(y>557&&y<647))||((x>90&&x<381)&&(y>748&&y<838)))
-            	 {
-            		 break;
-            	 }
-             }
+        	 x=0;
+        	 y=0;
+        while (true)
+        {
+    
+           mouseClick();
+           Thread.sleep(10);	 
+           if (((x>413&&x<703)&&(y>748&&y<838))||((324<=x&&x<=284)&&(352<=y&&y<=451))||((546<=x&&x<=720)&&(352<=y&&y<=451))||((x>413&&x<703)&&(y>748&&y<838))||((x>406&&x<695)&&(y>558&&y<646))||((x>90&&x<381)&&(y>557&&y<647))||((x>90&&x<381)&&(y>748&&y<838)))
+           {
+        	   break;
+           }
+        }
         	 
         	 
          if(((x>413&&x<703)&&(y>748&&y<838))||((x>406&&x<695)&&(y>558&&y<646))||((x>90&&x<381)&&(y>557&&y<647))||((x>90&&x<381)&&(y>748&&y<838)))
@@ -203,11 +205,14 @@ public class WhoWantsToBeAMillionaire {
         	 if (checkAnswer())
         	 {
         		 menu.setCursor(9,15);
-        	 	 menu.println("That is correct!");
+        	 	 menu.print("That is correct!");
+        	 	 Thread.sleep(5000);
+        	 	 menu.clear();
         	 }
         	 else
         	 {
-        		 menu.println("Sorry, that's incorrect");
+        		 menu.print("Sorry, that's incorrect");
+        		 endGame();
         		 
         	 }
         	 
@@ -229,7 +234,7 @@ public class WhoWantsToBeAMillionaire {
  			 audiencePoll();
  		 }
  		
-         }
+        }
          
          
          
@@ -337,11 +342,13 @@ public class WhoWantsToBeAMillionaire {
 			 return false;
 		 }
 	}
-	public static void endGame(){
+	public static void endGame() throws InterruptedException{
 		menu.drawImage(blackScreen, 0, 0,  menu.getWidth() , menu.getHeight() , null);
 		menu.setTextBackgroundColor(Color.BLACK);
 		menu.setTextColor(Color.WHITE);
 		menu.println("Game over!");
+		Thread.sleep(1000);
+		menu.close();
 	}
 
 }
