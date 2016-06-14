@@ -58,7 +58,7 @@ public class WhoWantsToBeAMillionaire {
 		String []incorrect3=new String [15];
 		String []correct=new String [15];
 		
-		boolean checker=false;
+		boolean win=false;
 		rnd0 = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/rnd0.jpg"));
 		rnd1 = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/rnd1.jpg"));
 		rnd2 = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/rnd2.jpg"));
@@ -74,7 +74,7 @@ public class WhoWantsToBeAMillionaire {
 
          questions[2] = "When was D-Day?"; incorrect1[2] = "April 6, 1944"; incorrect2[2] = "August 6, 1944"; incorrect3[2] = "May 6, 1944"; correct[2] = "June 6, 1944";
 
-         questions[3] = "What was a short term cause for WW1?"; incorrect1[3] = "The invasion of France"; incorrect2[3] = "The invasion of Poland"; incorrect3[3] = "The assassination of Winston Churchill"; correct[3] = "The assassination of Archduke Franz Ferdinand";
+         questions[3] = "What report declared that the British colonies should be autonomous?"; incorrect1[3] = "The Empire Report"; incorrect2[3] = "The Oliver Report"; incorrect3[3] = "The Christopher Report"; correct[3] = "The Balfour Report";
 
          questions[4] = "Who was the Prime Minister of Canada for both World Wars?"; incorrect1[4] = "Pierre Truedeau"; incorrect2[4] = "Richard Nixon"; incorrect3[4] = "R.B. Benet"; correct[4] = "Mackenzie King";
 
@@ -105,12 +105,13 @@ public class WhoWantsToBeAMillionaire {
          menu.setTextColor(Color.YELLOW);
          menu.drawImage(titleScreen, 0, 0,  menu.getWidth() , menu.getHeight() , null);
          
-        
+         
          
          while (true)
          {
         	 mouseClick();
         	 Thread.sleep(10);
+        	 
         	 if ((419<=x&&x<=647)&&(360<=y&&y<=469))
         	 {
         		 x=0;
@@ -124,11 +125,20 @@ public class WhoWantsToBeAMillionaire {
          {
     		 menu.clear();
         	 menu.drawImage(questionScreen, 0, 0,  menu.getWidth() , menu.getHeight() , null);
+        	 menu.drawLine(870, 800-(44*i), 1049, 800-(44*i));
         	 menu.setCursor(9,15);
         	 menu.print(questions[i]);
+        	 menu.setCursor(27,13);
+        	 menu.print("A");
+        	 menu.setCursor(27,52);
+        	 menu.print("B");
+        	 menu.setCursor(36,13);
+        	 menu.print("C");
+        	 menu.setCursor(36,52);
+        	 menu.print("D");
         	 
+        	 rnd=(int) (Math.random() * 4);
         	 
-        	 rnd=(int) (Math.random() * 3);
         	 
         	 if (rnd==0)
         	 {
@@ -144,7 +154,7 @@ public class WhoWantsToBeAMillionaire {
         	 	menu.setCursor(36,54);
         	 	menu.print(correct[i]);
         	 }
-        	 if (rnd==1)
+        	 else if (rnd==1)
         	 {
         		menu.setCursor(27,15);
         	 	menu.print(incorrect2[i]);
@@ -185,9 +195,12 @@ public class WhoWantsToBeAMillionaire {
         	 
         	 	menu.setCursor(36,54);
         	 	menu.print(incorrect1[i]);
+        	 	
         	 }
         	 x=0;
         	 y=0;
+        	 
+        	 
         while (true)
         {
     
@@ -198,48 +211,68 @@ public class WhoWantsToBeAMillionaire {
         	   break;
            }
         }
+        
         	 
-        	 
+         //50:50
+		 if ((x>413&&x<703)&&(y>748&&y<838)&&!FF) 
+		 {
+			 fiftyFifty();
+			 while(true)
+			 {
+				 mouseClick();
+				 Thread.sleep(10);
+				 if (((x>413&&x<703)&&(y>748&&y<838))||((x>406&&x<695)&&(y>558&&y<646))||((x>90&&x<381)&&(y>557&&y<647))||((x>90&&x<381)&&(y>748&&y<838)))
+				 {
+					 break;
+				 }
+			 }
+		 }
+		 //PAF
+		 if ((324<=x&&x<=284)&&(352<=y&&y<=451)&&!PF)  
+		 {
+			 phoneAFriend();
+			 while(true)
+			 {
+				 mouseClick();
+				 Thread.sleep(10);
+				 if (((x>413&&x<703)&&(y>748&&y<838))||((x>406&&x<695)&&(y>558&&y<646))||((x>90&&x<381)&&(y>557&&y<647))||((x>90&&x<381)&&(y>748&&y<838)))
+				 {
+					 break;
+				 }
+			 }
+		 }
+		 //AP
+		 if ((546<=x&&x<=720)&&(352<=y&&y<=451)&&!AP) 
+		 {
+			 audiencePoll();
+			 while(true)
+			 {
+				 mouseClick();
+				 Thread.sleep(10);
+				 if (((x>413&&x<703)&&(y>748&&y<838))||((x>406&&x<695)&&(y>558&&y<646))||((x>90&&x<381)&&(y>557&&y<647))||((x>90&&x<381)&&(y>748&&y<838)))
+				 {
+					 break;
+				 }
+			 }
+		 }
          if(((x>413&&x<703)&&(y>748&&y<838))||((x>406&&x<695)&&(y>558&&y<646))||((x>90&&x<381)&&(y>557&&y<647))||((x>90&&x<381)&&(y>748&&y<838)))
          {
         	 if (checkAnswer())
         	 {
+        		 menu.clear();
         		 menu.setCursor(9,15);
         	 	 menu.print("That is correct!");
-        	 	 Thread.sleep(5000);
+        	 	 Thread.sleep(1000);
         	 	 menu.clear();
         	 }
         	 else
         	 {
         		 menu.print("Sorry, that's incorrect");
-        		 endGame();
-        		 
-        	 }
-        	 
-         }
-         
- 		//50:50
- 		 if ((x>413&&x<703)&&(y>748&&y<838)&&!FF) 
- 		 {
- 			 fiftyFifty();
- 		 }
- 		 //PAF
- 		 if ((324<=x&&x<=284)&&(352<=y&&y<=451)&&!PF)  
- 		 {
- 			 phoneAFriend();
- 		 }
- 		 //AP
- 		 if ((546<=x&&x<=720)&&(352<=y&&y<=451)&&!AP) 
- 		 {
- 			 audiencePoll();
- 		 }
+        		 endGame();        		 
+        	 } 
+         } 
  		
-        }
-         
-         
-         
-         
-         
+        }     
          
 	}
 	
@@ -267,6 +300,7 @@ public class WhoWantsToBeAMillionaire {
 		Console callScreen=new Console (40,150);
 		PF=true;
 		
+		
 	}
 	public static void audiencePoll (){
 		Console audiencePoll=new Console(5,25);
@@ -281,21 +315,21 @@ public class WhoWantsToBeAMillionaire {
 			audiencePoll.println("|  "+20+" |  "+15+" |  "+10+" |  "+55+" |");
 			audiencePoll.println("-------------------------");
 		
-		}
+		}	
 		else if (rnd==1)
 		{
 			audiencePoll.println("-------------------------");
 			audiencePoll.println("|  A  |  B  |  C  |  D  |");
 			audiencePoll.println("-------------------------");
-			audiencePoll.println("|  "+20+" |  "+15+" |  "+10+" |  "+55+" |");
+			audiencePoll.println("|  "+10+" |  "+70+" |  "+10+" |  "+10+" |");
 			audiencePoll.println("-------------------------");
-		}
+		}		
 		else if (rnd==2)
 		{
 			audiencePoll.println("-------------------------");
 			audiencePoll.println("|  A  |  B  |  C  |  D  |");
 			audiencePoll.println("-------------------------");
-			audiencePoll.println("|  "+20+" |  "+15+" |  "+10+" |  "+55+" |");
+			audiencePoll.println("|  "+25+" |  "+25+" |  "+25+" |  "+25+" |");
 			audiencePoll.println("-------------------------");
 		}
 		else
@@ -303,7 +337,7 @@ public class WhoWantsToBeAMillionaire {
 			audiencePoll.println("-------------------------");
 			audiencePoll.println("|  A  |  B  |  C  |  D  |");
 			audiencePoll.println("-------------------------");
-			audiencePoll.println("|  "+20+" |  "+15+" |  "+10+" |  "+55+" |");
+			audiencePoll.println("|  "+30+" |  "+25+" |  "+45+" |  "+5+" |");
 			audiencePoll.println("-------------------------");
 		}
 		
@@ -315,6 +349,7 @@ public class WhoWantsToBeAMillionaire {
  			public void mousePressed(MouseEvent me) {
  				x = me.getX();
  				y = me.getY();
+ 				
  				//menu.println(x + ", " + y);
  			} 
  		});
@@ -346,9 +381,12 @@ public class WhoWantsToBeAMillionaire {
 		menu.drawImage(blackScreen, 0, 0,  menu.getWidth() , menu.getHeight() , null);
 		menu.setTextBackgroundColor(Color.BLACK);
 		menu.setTextColor(Color.WHITE);
+		menu.setCursor(1,1);
 		menu.println("Game over!");
-		Thread.sleep(1000);
+		menu.println("You won $");
+		Thread.sleep(500);
 		menu.close();
+		
 	}
 
 }
