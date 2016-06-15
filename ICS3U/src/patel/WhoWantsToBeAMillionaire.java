@@ -21,6 +21,9 @@ public class WhoWantsToBeAMillionaire {
 	public static BufferedImage rnd1=null;
 	public static BufferedImage rnd2=null;
 	public static BufferedImage rnd3=null;
+	public static BufferedImage steveJobs=null;
+	public static BufferedImage billGates=null;
+	public static BufferedImage adamServ=null;
 	public static int rnd;
 	public static boolean AP;
 	public static boolean PF;
@@ -63,6 +66,9 @@ public class WhoWantsToBeAMillionaire {
 		rnd1 = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/rnd1.jpg"));
 		rnd2 = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/rnd2.jpg"));
 		rnd3 = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/rnd3.jpg"));
+		steveJobs = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/steveJobs.jpg"));
+		billGates = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/billGates.jpg"));
+		adamServ = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/theSMan.jpg"));
 		titleScreen = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/titleScreen.jpg"));
 		blackScreen = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/blackScreen.jpg"));
 		questionScreen = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/questionScreenFinal.jpg"));
@@ -206,7 +212,7 @@ public class WhoWantsToBeAMillionaire {
     
            mouseClick();
            Thread.sleep(10);	 
-           if (((x>413&&x<703)&&(y>748&&y<838))||((324<=x&&x<=284)&&(352<=y&&y<=451))||((546<=x&&x<=720)&&(352<=y&&y<=451))||((x>413&&x<703)&&(y>748&&y<838))||((x>406&&x<695)&&(y>558&&y<646))||((x>90&&x<381)&&(y>557&&y<647))||((x>90&&x<381)&&(y>748&&y<838)))
+           if (((x>413&&x<703)&&(y>748&&y<838))||((324<=x&&x<=284)&&(352<=y&&y<=451))||((546<=x&&x<=720)&&(352<=y&&y<=451))||((x>413&&x<703)&&(y>748&&y<838))||((x>406&&x<695)&&(y>558&&y<646))||((x>90&&x<381)&&(y>557&&y<647))||((x>90&&x<381)&&(y>748&&y<838))||((x>124&&x<285)&&(y>352&&y<451))||((324<=x&&x<=486)&&(352<=y&&y<=449)))
            {
         	   break;
            }
@@ -214,7 +220,7 @@ public class WhoWantsToBeAMillionaire {
         
         	 
          //50:50
-		 if ((x>413&&x<703)&&(y>748&&y<838)&&!FF) 
+		 if ((x>124&&x<285)&&(y>352&&y<451)&&!FF) 
 		 {
 			 fiftyFifty();
 			 while(true)
@@ -228,7 +234,7 @@ public class WhoWantsToBeAMillionaire {
 			 }
 		 }
 		 //PAF
-		 if ((324<=x&&x<=284)&&(352<=y&&y<=451)&&!PF)  
+		 if ((324<=x&&x<=486)&&(352<=y&&y<=449)&&!PF)  
 		 {
 			 phoneAFriend();
 			 while(true)
@@ -279,26 +285,54 @@ public class WhoWantsToBeAMillionaire {
 	public static void fiftyFifty (){
 
 		 FF=true;
+		 //d
 		 if (rnd==0)
 		 {
-			 
+			  //a
+			  menu.setCursor(27,13);
+			  menu.print("                  ");
+			  //c
+			  menu.setCursor(36,13);
+			  menu.print("                  ");
 		 }
+		 //b
 		 else if (rnd==1)
 		 {
-			 
+			  //d
+			  menu.setCursor(36,52);
+			  menu.print("                  ");
+			  //c
+			  menu.setCursor(36,13);
+			  menu.print("                  ");
 		 }
+		 //a
 		 else if (rnd==2)
 		 {
-			 
+			  //b
+			  menu.setCursor(27,52);
+			  menu.print("                   ");
+			  //d
+			  menu.setCursor(36,52);
+			  menu.print("                   ");
 		 }
+		 //c
 		 else
 		 {
-			 
-		 }
+			  //a
+			  menu.setCursor(27,13);
+			  menu.print("                    ");
+			  //d
+			  menu.setCursor(36,52);
+			  menu.print("                     ");
+		 } 
 	}
 	public static void phoneAFriend (){
 		Console callScreen=new Console (40,150);
-		PF=true;
+		
+		 PF=true;
+		 callScreen.drawImage(steveJobs, 10, 68,  200, 161 , null);
+		 callScreen.drawImage(billGates, 210, 229,  200, 161 , null);
+		 callScreen.drawImage(adamServ, 420, 297,  200, 161 , null);
 		
 		
 	}
@@ -384,7 +418,7 @@ public class WhoWantsToBeAMillionaire {
 		menu.setCursor(1,1);
 		menu.println("Game over!");
 		menu.println("You won $");
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		menu.close();
 		
 	}
