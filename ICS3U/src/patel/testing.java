@@ -18,11 +18,21 @@ import hsa_new.Console;
 
 public class testing {
 
+	public static BufferedImage steveJobs=null;
+	public static BufferedImage billGates=null;
+	public static BufferedImage adamServ=null;
 	public static BufferedImage questionScreen=null;
 	static int x = 0, y = 0;
-	static Console c=new Console (40,150);
+	static Console c=new Console (30,150);
 	
 	public static void main(String[] args) throws IOException {
+		steveJobs = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/steveJobs.jpg"));
+		/*billGates = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/billGates.jpg"));
+		adamServ = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/theSMan.jpg"));
+		
+		c.drawImage(steveJobs, 0, 0,  200, 161 , null);
+	    c.drawImage(billGates, 0, 161,  200, 161 , null);
+	    c.drawImage(adamServ, 0, 322,  200, 161 , null);*/
 		questionScreen = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/questionScreenFinal.jpg"));
 		c.drawImage(questionScreen, 0, 0,  c.getWidth() , c.getHeight() , null);
 		

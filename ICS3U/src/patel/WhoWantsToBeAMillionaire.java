@@ -24,7 +24,7 @@ public class WhoWantsToBeAMillionaire {
 	public static BufferedImage steveJobs=null;
 	public static BufferedImage billGates=null;
 	public static BufferedImage adamServ=null;
-	public static int rnd;
+	
 	public static boolean AP;
 	public static boolean PF;
 	public static boolean FF;
@@ -32,7 +32,7 @@ public class WhoWantsToBeAMillionaire {
 	
 	
 	public static int x = 0, y = 0;
-	static Console menu = new Console(40, 150);
+	 
 	
 	
 	
@@ -51,7 +51,7 @@ public class WhoWantsToBeAMillionaire {
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
-		
+		Console menu = new Console(40, 150);
 		Color.RGBtoHSB(63, 71, 204, hsbColours);
 		
 		
@@ -86,7 +86,7 @@ public class WhoWantsToBeAMillionaire {
 
          questions[5] = "What was the name of the atomic bomb project?"; incorrect1[5] = "Miami Project"; incorrect2[5] = "Ottawa Project"; incorrect3[5] = "New York Project"; correct[5] = "Manhattan Project";
 
-         questions[6] = "Which of the following is not part of the *Big Five* countries in the United Nations?"; incorrect1[6] = "France"; incorrect2[6] = "China"; incorrect3[6] = "U.S.A."; correct[6] = "Japan";
+         questions[6] = "Which of the following wasn't part of the *Big Five* in the United Nations?"; incorrect1[6] = "France"; incorrect2[6] = "China"; incorrect3[6] = "U.S.A."; correct[6] = "Japan";
 
          questions[7] = "What was a long term cause for WW2?"; incorrect1[7] = "The assassination of JFK"; incorrect2[7] = "MANIA"; incorrect3[7] = "Capitalism vs Communism"; correct[7] = "The Treaty of Versailles";
 
@@ -115,7 +115,7 @@ public class WhoWantsToBeAMillionaire {
          
          while (true)
          {
-        	 mouseClick();
+        	 mouseClick(menu);
         	 Thread.sleep(10);
         	 
         	 if ((419<=x&&x<=647)&&(360<=y&&y<=469))
@@ -143,7 +143,7 @@ public class WhoWantsToBeAMillionaire {
         	 menu.setCursor(36,52);
         	 menu.print("D");
         	 
-        	 rnd=(int) (Math.random() * 4);
+        	 int rnd=(int) (Math.random() * 4);
         	 
         	 
         	 if (rnd==0)
@@ -210,9 +210,9 @@ public class WhoWantsToBeAMillionaire {
         while (true)
         {
     
-           mouseClick();
+           mouseClick(menu);
            Thread.sleep(10);	 
-           if (((x>413&&x<703)&&(y>748&&y<838))||((324<=x&&x<=284)&&(352<=y&&y<=451))||((546<=x&&x<=720)&&(352<=y&&y<=451))||((x>413&&x<703)&&(y>748&&y<838))||((x>406&&x<695)&&(y>558&&y<646))||((x>90&&x<381)&&(y>557&&y<647))||((x>90&&x<381)&&(y>748&&y<838))||((x>124&&x<285)&&(y>352&&y<451))||((324<=x&&x<=486)&&(352<=y&&y<=449)))
+           if (((x>413&&x<703)&&(y>748&&y<838))||((324<=x&&x<=284)&&(352<=y&&y<=451))||((546<=x&&x<=720)&&(352<=y&&y<=451))||((x>413&&x<703)&&(y>748&&y<838))||((x>406&&x<695)&&(y>558&&y<646))||((x>90&&x<381)&&(y>557&&y<647))||((x>90&&x<381)&&(y>748&&y<838))||((x>124&&x<285)&&(y>352&&y<451))||((324<=x&&x<=486)&&(352<=y&&y<=449))||((x>324&&x<461)&&(y>531&&y<581)))
            {
         	   break;
            }
@@ -222,10 +222,10 @@ public class WhoWantsToBeAMillionaire {
          //50:50
 		 if ((x>124&&x<285)&&(y>352&&y<451)&&!FF) 
 		 {
-			 fiftyFifty();
+			 fiftyFifty(menu,rnd);
 			 while(true)
 			 {
-				 mouseClick();
+				 mouseClick(menu);
 				 Thread.sleep(10);
 				 if (((x>413&&x<703)&&(y>748&&y<838))||((x>406&&x<695)&&(y>558&&y<646))||((x>90&&x<381)&&(y>557&&y<647))||((x>90&&x<381)&&(y>748&&y<838)))
 				 {
@@ -236,10 +236,10 @@ public class WhoWantsToBeAMillionaire {
 		 //PAF
 		 if ((324<=x&&x<=486)&&(352<=y&&y<=449)&&!PF)  
 		 {
-			 phoneAFriend();
+			 phoneAFriend(correct[i],incorrect1[i]);
 			 while(true)
 			 {
-				 mouseClick();
+				 mouseClick(menu);
 				 Thread.sleep(10);
 				 if (((x>413&&x<703)&&(y>748&&y<838))||((x>406&&x<695)&&(y>558&&y<646))||((x>90&&x<381)&&(y>557&&y<647))||((x>90&&x<381)&&(y>748&&y<838)))
 				 {
@@ -250,10 +250,10 @@ public class WhoWantsToBeAMillionaire {
 		 //AP
 		 if ((546<=x&&x<=720)&&(352<=y&&y<=451)&&!AP) 
 		 {
-			 audiencePoll();
+			 audiencePoll(rnd);
 			 while(true)
 			 {
-				 mouseClick();
+				 mouseClick(menu);
 				 Thread.sleep(10);
 				 if (((x>413&&x<703)&&(y>748&&y<838))||((x>406&&x<695)&&(y>558&&y<646))||((x>90&&x<381)&&(y>557&&y<647))||((x>90&&x<381)&&(y>748&&y<838)))
 				 {
@@ -261,9 +261,14 @@ public class WhoWantsToBeAMillionaire {
 				 }
 			 }
 		 }
+		 //exit
+		 if ((x>324&&x<461)&&(y>531&&y<581))
+		 {
+			 endGame(menu);
+		 }
          if(((x>413&&x<703)&&(y>748&&y<838))||((x>406&&x<695)&&(y>558&&y<646))||((x>90&&x<381)&&(y>557&&y<647))||((x>90&&x<381)&&(y>748&&y<838)))
          {
-        	 if (checkAnswer())
+        	 if (checkAnswer(rnd))
         	 {
         		 menu.clear();
         		 menu.setCursor(9,15);
@@ -274,15 +279,16 @@ public class WhoWantsToBeAMillionaire {
         	 else
         	 {
         		 menu.print("Sorry, that's incorrect");
-        		 endGame();        		 
+        		 endGame(menu);        		 
         	 } 
          } 
  		
-        }     
+        }  
+        endGame(menu); 
          
 	}
 	
-	public static void fiftyFifty (){
+	public static void fiftyFifty (Console menu, int rnd){
 
 		 FF=true;
 		 //d
@@ -326,17 +332,47 @@ public class WhoWantsToBeAMillionaire {
 			  menu.print("                     ");
 		 } 
 	}
-	public static void phoneAFriend (){
-		Console callScreen=new Console (40,150);
+	public static void phoneAFriend (String correct, String incorrect) throws InterruptedException{
+		Console callScreen=new Console (40,50);
 		
 		 PF=true;
-		 callScreen.drawImage(steveJobs, 10, 68,  200, 161 , null);
-		 callScreen.drawImage(billGates, 210, 229,  200, 161 , null);
-		 callScreen.drawImage(adamServ, 420, 297,  200, 161 , null);
+		 callScreen.drawImage(steveJobs, 0, 0,  200, 161 , null);
+		 callScreen.drawImage(billGates, 0, 161,  200, 161 , null);
+		 callScreen.drawImage(adamServ, 0, 322,  200, 161 , null);
+		 while(true)
+		 {
+			 mouseClick(callScreen);
+			 Thread.sleep(10);
+			 if ((x>12&&x<214)&&(y>73&&y<556))
+			 {
+				 break;
+			 }
+		 }
+		 callScreen.clear();
+		 if ((x>12&&x<214)&&(y>73&&y<234))
+		 {
+			 callScreen.drawImage(steveJobs, 0, 0,  200, 161 , null);
+			 callScreen.setCursor(30,2);
+			 callScreen.print("I dont know the correct answer.");
+		 }
+		 else if ((x>12&&x<214)&&(y>235&&y<395))
+		 {
+			 callScreen.drawImage(billGates, 0, 161,  200, 161 , null);
+			 callScreen.setCursor(30,2);
+			 callScreen.print("I think it's ether "+correct+" or "+incorrect+".");
+		 }
+		 else if ((x>12&&x<214)&&(y>396&&y<556))
+		 {
+			 callScreen.drawImage(adamServ, 0, 322,  200, 161 , null);
+			 callScreen.setCursor(30,2);
+			 callScreen.print("Easy, the correct answer is "+correct+".");
+		 }
+		 
+		 
 		
 		
 	}
-	public static void audiencePoll (){
+	public static void audiencePoll (int rnd){
 		Console audiencePoll=new Console(5,25);
 		audiencePoll.setTextBackgroundColor(Color.getHSBColor(hsbColours[0], hsbColours[1], hsbColours[2]));
 		audiencePoll.setTextColor(Color.YELLOW);
@@ -378,8 +414,9 @@ public class WhoWantsToBeAMillionaire {
 		
 	
 	}
-	public static void mouseClick (){
-		menu.addMouseListener(new MouseAdapter() { 
+	
+	public static void mouseClick (Console c){
+		c.addMouseListener(new MouseAdapter() { 
  			public void mousePressed(MouseEvent me) {
  				x = me.getX();
  				y = me.getY();
@@ -389,7 +426,7 @@ public class WhoWantsToBeAMillionaire {
  		});
 		
 	}
-	public static boolean checkAnswer(){
+	public static boolean checkAnswer(int rnd){
 		 if (rnd==0&&(x>413&&x<703)&&(y>748&&y<838))
 		 {
 			 return true;
@@ -411,7 +448,7 @@ public class WhoWantsToBeAMillionaire {
 			 return false;
 		 }
 	}
-	public static void endGame() throws InterruptedException{
+	public static void endGame(Console menu) throws InterruptedException{
 		menu.drawImage(blackScreen, 0, 0,  menu.getWidth() , menu.getHeight() , null);
 		menu.setTextBackgroundColor(Color.BLACK);
 		menu.setTextColor(Color.WHITE);
