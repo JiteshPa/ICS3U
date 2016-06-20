@@ -23,7 +23,7 @@ public class testing {
 	public static BufferedImage adamServ=null;
 	public static BufferedImage questionScreen=null;
 	static int x = 0, y = 0;
-	static Console c=new Console (30,150);
+	static Console c=new Console (40,150);
 	
 	public static void main(String[] args) throws IOException {
 		steveJobs = ImageIO.read(WhoWantsToBeAMillionaire.class.getResourceAsStream("/steveJobs.jpg"));
@@ -45,7 +45,6 @@ public class testing {
 				c.println(x + ", " + y);
 			} 
 		});
-	 	
 	}
 
 }
