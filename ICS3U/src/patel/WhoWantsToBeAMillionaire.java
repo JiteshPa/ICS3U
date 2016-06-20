@@ -27,7 +27,7 @@ public class WhoWantsToBeAMillionaire {
 	public static int x = 0, y = 0;
 	
 	/**
-	 * This is the main method. It does most of the work,and calls all of the otehr methods
+	 * This is the main method. It does most of the work,and calls all of the other methods
 	 * @param args
 	 * @throws IOException
 	 * @throws InterruptedException
